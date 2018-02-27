@@ -1,20 +1,36 @@
-## YAML Template.
+# ===============================
+# = Hibernate datasource
+# ===============================
 spring:
     datasource:
         url: jdbc:h2:file:~/userdatadb
         username: root
+        password: 
+
+# ===============================
+# = JPA configurations
+# ===============================
     jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
         properties:
-            hibernate:
-                dialect: org.hibernate.dialect.H2Dialect
-                ddl-auto: update
-    thymeleaf:
-        cache: false
-        check-template: true
-        check-template-location: true
-        content-type: text/html
-        enabled: true
-        encoding: UTF-8
-        prefix: classpath:/templates/
-        suffix: .html
----
+            hibernate.dialect: org.hibernate.dialect.H2Dialect
+
+# ===============================
+# = Email configurations
+# ===============================
+    mail:
+        host: smtp.gmail.com
+        username: m.yasir0002@gmail.com
+        password: 21@October
+        port: 587
+        properties: 
+            mail:
+                transport:
+                    protocol: smtp
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+                debug: true

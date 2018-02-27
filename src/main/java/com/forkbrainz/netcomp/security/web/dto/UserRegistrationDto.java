@@ -1,4 +1,4 @@
-package com.forkbrainz.netcomp.user.dto;
+package com.forkbrainz.netcomp.security.web.dto;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -10,17 +10,33 @@ public class UserRegistrationDto {
     private String name;
 
     @NotEmpty
+    private String phone;
+    
+    @NotEmpty
     private String password;
 
     @Email
     @NotEmpty
     private String email;
 
-    @NotEmpty
-    private String phone;
-
     @AssertTrue
     private Boolean terms;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Boolean getTerms() {
         return terms;
@@ -38,22 +54,6 @@ public class UserRegistrationDto {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -62,10 +62,4 @@ public class UserRegistrationDto {
         this.phone = phone;
     }
 
-    @Override
-    public String toString() {
-        return "Name: "+getName()+", Email: "+getEmail()+", Phone: "+getPhone()+", Pwd: "+getPassword();
-    }
-    
-    
 }
