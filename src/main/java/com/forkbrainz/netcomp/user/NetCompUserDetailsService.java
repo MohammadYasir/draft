@@ -5,6 +5,7 @@
  */
 package com.forkbrainz.netcomp.user;
 
+import com.forkbrainz.netcomp.user.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -31,4 +32,5 @@ public class NetCompUserDetailsService implements UserDetailsService {
         return new NetCompUserDetails(user);
     }
     
+    public void 
 }
