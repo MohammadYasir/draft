@@ -31,6 +31,9 @@
             <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('phone')}"
                  th:each="error: ${#fields.errors('phone')}"
                  th:text="${error}"></div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('terms')}"
+                 th:each="error: ${#fields.errors('terms')}"
+                 th:text="${error}"></div>
             <label for="name" class="sr-only">Name</label>
             <input id="name" 
                    class="form-control" th:classappend="${#fields.hasErrors('name')}? 'is-invalid':''"
@@ -53,7 +56,8 @@
                    th:field="*{phone}"/>
             <div class="checkbox mb-3">
                 <label>
-                    <input type="checkbox" value="remember-me"/> <span class="text-muted">I agree with the <a href="#">terms and conditions</a> for Registration.</span>
+                    <input th:field="*{terms}" th:classappend="${#fields.hasErrors('phone')}? 'is-invalid':''" type="checkbox" required="" /> 
+                    <span class="text-muted">I agree with the <a href="#">terms and conditions</a> for Registration.</span>
                 </label>
             </div>
             <button class="btn btn-lg btn-primary btn-block rstemail" type="submit" >Register</button>
