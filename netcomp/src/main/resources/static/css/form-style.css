@@ -46,16 +46,12 @@ body {
 .form-signin .form-control:focus {
     z-index: 2;
 }
-.form-signin input[id="username"] {
+.form-signin input[id="username"], .form-signin input[id="newpassword"], .form-signin input[id="name"] {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
-.form-signin input[id="name"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
+
 .form-signin input[id="email"] {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
@@ -63,15 +59,17 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
-.form-signin input[id="phone"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-.form-signin input[type="password"] {
+ 
+.form-signin input[id="password"], .form-signin input[id="cfrmpassword"], .form-signin input[id="phone"] {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+.form-signin input[id="rstemail"] {
+    margin-bottom: 10px;
+}
+
+.rstemail{
+    margin-bottom: 20px;
 }

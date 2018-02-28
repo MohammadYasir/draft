@@ -16,7 +16,7 @@
             <h1 class="h3 mb-3 font-weight-normal">New User Sign Up</h1>
             <div th:if="${param.success}">
                 <div class="alert alert-success" role="alert">
-                    You've successfully registered. Check email to activate your account.
+                    You've successfully registered. Check your email to activate your account.
                 </div>
             </div>
             <div class="alert alert-danger" role="alert" th:if="${#fields.hasGlobalErrors()}"
@@ -30,9 +30,6 @@
                  th:text="${error}"></div>
             <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('phone')}"
                  th:each="error: ${#fields.errors('phone')}"
-                 th:text="${error}"></div>
-            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('password')}"
-                 th:each="error: ${#fields.errors('password')}"
                  th:text="${error}"></div>
             <label for="name" class="sr-only">Name</label>
             <input id="name" 
@@ -54,20 +51,13 @@
                    placeholder="Phone"
                    type="text"
                    th:field="*{phone}"/>
-            <label for="password2" class="sr-only">Select a password</label>
-            <input id="password2"
-                   class="form-control" th:classappend="${#fields.hasErrors('password')}? 'is-invalid':''"
-                   type="password"
-                   required=""
-                   placeholder="Password"
-                   th:field="*{password}"/>
             <div class="checkbox mb-3">
                 <label>
-                    <input type="checkbox" value="remember-me"/> I agree with the <a href="#">terms and conditions</a> for Registration.
+                    <input type="checkbox" value="remember-me"/> <span class="text-muted">I agree with the <a href="#">terms and conditions</a> for Registration.</span>
                 </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" >Register</button>
-            <span>Already registered? <a href="/" th:href="@{/login}">Login here</a></span>
+            <button class="btn btn-lg btn-primary btn-block rstemail" type="submit" >Register</button>
+            <span class="text-muted">Already registered?</span> <a href="/" th:href="@{/login}">Login here</a>
         </form>
     </body>
 </html>

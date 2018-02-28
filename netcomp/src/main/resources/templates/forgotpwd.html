@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/form-style.css}"/>
+        <title>Registration</title>
+    </head>
+    <body class="text-center">
+        <form class="form-signin" th:object="${setEmail}" th:action="@{/forgotpassword}" method="post">
+            <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"/>
+            <h1 class="h3 mb-3 font-weight-normal">Reset Password</h1>
+            <div th:if="${success}" class="alert alert-info" >
+                A password reset link has been sent to your email address. Please follow it for the next steps.
+            </div>
+            <div th:if="${error}" class="alert alert-danger" role="alert">
+                This email address doesn't exists in our records. This could mean you signed up with a different address.
+            </div>
+            <div th:if="${reset}">
+                <div class="rstemail text-muted"><small>Enter your email address below and we'll send you a link to reset your password.</small></div>
+                <label for="rstemail" class="sr-only">Email address</label>
+                <input type="email"
+                       id="rstemail"
+                       name="email"
+                       class="form-control"
+                       required=""
+                       placeholder="Email Address"/>
+                <button class="btn btn-lg btn-primary btn-block rstemail" type="submit" >Reset Password</button>
+            </div>
+            <div class="form-group">
+                <span><a href="/" th:href="@{/login}">Log in</a> OR <a href="/" th:href="@{/registration}">Register</a></span>
+            </div>
+        </form>
+    </body>
+</html>

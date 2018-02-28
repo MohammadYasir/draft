@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/form-style.css}"/>
+
+        <title>Registration</title>
+    </head>
+    <body class="text-center">
+        <form id="passwordForm" role="form" class="form-signin" th:object="${setPassword}" th:action="${invalidToken} ? '' : '/confirm'" method="post">
+            <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"/>
+            <h1 class="h3 mb-3 font-weight-normal">Set your password</h1>
+            <div th:if="${successMessage}">
+                <div th:text="${successMessage}" class="alert alert-success" role="alert"></div>
+            </div>
+            <div th:if="${errorMessage}">
+                <div class="alert alert-danger" role="alert" th:text="${errorMessage}"></div>
+            </div>
+            <div th:if="${invalidToken}">
+                <div class="alert alert-danger" role="alert" th:text="${invalidToken}"></div>
+            </div>
+            <input type="hidden" name="token" th:value="${confirmationToken}"  />
+            <label for="newpassword" class="sr-only">New Password</label>
+            <input type="password"
+                   id="newpassword"
+                   name="newpassword"
+                   class="form-control"
+                   autofocus="autofocus"
+                   required=""
+                   placeholder="New Password"/>
+            <label for="cfrmpassword" class="sr-only">Confirm Password</label>
+            <input type="password"
+                   id="cfrmpassword"
+                   name="cfrmpassword"
+                   class="form-control"
+                   required=""
+                   placeholder="Confirm Password"/>
+            <button class="btn btn-lg btn-primary btn-block rstemail" type="submit" >Confirm</button>
+            <div class="form-group">
+                <span><a href="/" th:href="@{/login}">Log in</a> OR <a href="/" th:href="@{/registration}">Register</a></span>
+            </div>
+        </form>
+    </body>
+</html>

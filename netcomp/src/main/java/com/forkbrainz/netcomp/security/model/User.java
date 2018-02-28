@@ -14,6 +14,7 @@ public class User {
     private String email;
     private String phone;
     private String password;
+    private String confirmationToken;
 
     public User() {
     }
@@ -74,6 +75,14 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getConfirmationToken() {
+        return confirmationToken;
+    }
+
+    public void setConfirmationToken(String confirmationToken) {
+        this.confirmationToken = confirmationToken;
     }
     
 }

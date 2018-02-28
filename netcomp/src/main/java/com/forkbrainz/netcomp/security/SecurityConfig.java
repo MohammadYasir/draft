@@ -23,6 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                     .antMatchers(
+                            "/confirm**",
+                            "/forgotpassword**",
                             "/registration**",
                             "/js/**",
                             "/css/**",

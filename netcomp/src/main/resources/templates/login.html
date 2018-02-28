@@ -13,7 +13,7 @@
     <body class="text-center">
         <form class="form-signin" th:action="@{/login}" method="post">
             <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"/>
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <h1 class="h3 mb-3 font-weight-normal text-muted">Please sign in</h1>
             <div th:if="${param.error}">
                 <div class="alert alert-danger" role="alert">
                     Invalid username or password!
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <label for="username" class="sr-only">Email address</label>
-            <input type="text"
+            <input type="email"
                    id="username"
                    name="username"
                    class="form-control"
@@ -41,12 +41,15 @@
                    placeholder="Password"/>
             <div class="checkbox mb-3">
                 <label>
-                    <input type="checkbox" value="remember-me"/> Remember me
+                    <input type="checkbox" value="remember-me"/> <span class="text-muted">Remember me</span>
                 </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" name="login-submit" id="login-submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block rstemail" type="submit" name="login-submit" id="login-submit">Sign in</button>
             <div class="form-group">
-                <span>New user? <a href="/" th:href="@{/registration}">Register here</a></span>
+                <span class="text-muted">New to NetComp?</span> <a href="/" th:href="@{/registration}">Sign Up</a>
+            </div>
+            <div class="form-group">
+                <span><a href="/" th:href="@{/forgotpassword}">Forgot your password?</a></span>
             </div>
         </form>
     </body>

@@ -7,6 +7,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public interface UserService extends UserDetailsService {
 
     User findByEmail(String email);
+    
+    User findByConfirmationToken(String token);
 
-    User save(UserRegistrationDto registration);
+    User save(UserRegistrationDto registration, String confirmToken);
+    
+    void save(User user);
+    
 }

@@ -11,9 +11,6 @@ public class UserRegistrationDto {
 
     @NotEmpty
     private String phone;
-    
-    @NotEmpty
-    private String password;
 
     @Email
     @NotEmpty
@@ -22,14 +19,6 @@ public class UserRegistrationDto {
     @AssertTrue
     private Boolean terms;
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
     public String getEmail() {
         return email;
     }
