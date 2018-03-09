@@ -3,6 +3,7 @@ package com.forkbrainz.netcomp.security.web;
 import com.forkbrainz.netcomp.security.model.User;
 import com.forkbrainz.netcomp.security.service.UserService;
 import com.forkbrainz.netcomp.security.web.dto.UserRegistrationDto;
+import com.forkbrainz.netcomp.user.NetCompUser;
 import java.util.Map;
 import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
+import org.dizitart.no2.objects.ObjectRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,6 +24,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UserRegistrationController {
+    
+    @Autowired
+    @Qualifier("NetCompUserRepo")
+    ObjectRepository<NetCompUser> userRepo;
 
     @Autowired
     private UserService userService;
@@ -33,6 +40,11 @@ public class UserRegistrationController {
         return new UserRegistrationDto();
     }
 
+    @GetMapping("/login")
+    public String login(Model model) {
+        return "login";
+    }
+    
     @GetMapping("/registration")
     public String showRegistrationForm(Model model) {
         return "registration";

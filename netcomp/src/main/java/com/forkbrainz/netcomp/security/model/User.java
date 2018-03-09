@@ -1,29 +1,26 @@
 package com.forkbrainz.netcomp.security.model;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class User {
+@Table(name = "frk_users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
     private String email;
-    private String phone;
     private String password;
     private String confirmationToken;
 
     public User() {
     }
 
-    public User(String name, String lastName, String email, String password, String phone) {
-        this.name = name;
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
-        this.phone = phone;
     }
 
     public Long getId() {
@@ -54,27 +51,9 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + "*********" + '\'' +
-                ", phone='" + phone + '\'' +
                 '}';
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getConfirmationToken() {

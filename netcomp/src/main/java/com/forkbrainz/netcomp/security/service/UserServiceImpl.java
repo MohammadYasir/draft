@@ -26,9 +26,7 @@ public class UserServiceImpl implements UserService {
 
     public User save(UserRegistrationDto registration, String confirmToken){
         User user = new User();
-        user.setName(registration.getName());
         user.setEmail(registration.getEmail());
-        user.setPhone(registration.getPhone());
         user.setConfirmationToken(confirmToken);
         return userRepository.save(user);
     }
